@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maya Horoskop Rechner</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: light;
+                --bg: #fff;
+                --accent-bg: #f5f7ff;
+                --text: #212121;
+                --text-light: #585858;
+                --accent: #0d47a1;
+                --accent-hover: #1266e2;
+                --accent-text: var(--bg);
+                --code: #d81b60;
+                --preformatted: #444;
+                --marked: #ffdd33;
+                --disabled: #efefef;
+            }
+        }
+
+        html {
+            height: 100%;
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Maya Horoskop Rechner</h1>
+    <form id="horoscope-form" onsubmit="onSubmit(event)">
+        <p>
+            Hier kannst du dein Geburtsdatum eingeben
+            und dir damit dein Maya-Geburts-Kin ausrechnen.
+            (Solltest du am 29. Februar geboren sein,
+            dann gib bitte den 28. als Datum ein, damit du das richtige Ergebnis bekommst)
+        </p>
+        <label for="birthdate">Geburtsdatum:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+        <button type="submit">Kin berechnen</button>
+        <div id="output" style="display:none;">
+            <p>Dein persönliches Maya-Kin ist: <span id="kin-result"></span></p>
+            <p id="details"></p>
+        </div>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function onSubmit(event) {
+            event.preventDefault();
+            console.log('Form submitted');
+            const birthdate = document.getElementById('birthdate').value;
+            const kinNumber = getMayaKinNumber(birthdate);
+            document.getElementById('kin-result').textContent = kinNumber;
+            document.getElementById('details').textContent = getMayaKinDetails(kinNumber);
+            document.getElementById('output').style.display = 'block';
+        };
+        function getMayaKinNumber(date) {
+            const monthLookUp = [0,31,59,90,120,151,181,212,243,13,44,74];
+            const yearLookUp = [2, 107, 212, 57, 162, 7, 112, 217, 62, 167, 12, 117, 222, 67, 172, 17, 122, 227, 72, 177, 22, 127, 232, 77, 182, 27, 132, 237, 82, 187, 32, 137, 242, 87, 192, 37, 142, 247, 92, 197, 42, 147, 252, 97, 202, 47, 152, 257, 102, 207, 52, 157];
+            
+            const d = new Date(date);
+            const result = yearLookUp[(d.getFullYear()-1902) % 52] + monthLookUp[d.getMonth()] + d.getDate();
+            const kinNumber = (result % 260) === 0 ? 260 : (result % 260);
+            return kinNumber;
+        };
+        function getTon(kinNumber) {
+            return ((kinNumber - 1) % 13) + 1;
+        };
+        function getArchetyp(kinNumber) {
+            const archetypIndex = ((kinNumber - 1) % 20);
+            const archetyp = ["Roter Drache", "Weißer Wind", "Blaue Nacht", "Gelber Samen", "Rote Schlange", "Weiße Weltbrücke", "Blaue Hand", "Gelber Stern", "Roter Mond", "Weißer Hund", "Blauer Affe", "Gelber Mensch", "Roter Himmelswanderer", "Weißer Magier", "Blauer Adler", "Gelber Krieger", "Rote Erde", "Weißer Spiegel", "Blauer Sturm", "Gelbe Sonne"];
+            return archetyp[archetypIndex];
+        };
+        function getMayaKinDetails(kinNumber) {
+            const ton = getTon(kinNumber);
+            const archetyp = getArchetyp(kinNumber);
+            const portalKinNumbers = [1,20,22,39,43,50,51,58,64,69,72,85,88,93,96,106,107,108,109,110,111,112,113,114,115,146,147,148,149,150,151,152,153,154,155,165,168,173,176,184,189,192,197,203,210,211,218,222,239,241,260];
+            const isPortal = portalKinNumbers.includes(kinNumber);
+            const welle = getArchetyp(kinNumber - ton + 1);
+
+            return `Archetyp: ${archetyp}, Ton: ${ton}, Welle: ${welle}${isPortal ? ', Portaltag' : ''}`;
+        }
+    </script>
+</body>
+</html>
