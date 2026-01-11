@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Dein Maya Rechner von Andrea von Energie für Dich</title>
     <link rel="icon" type="image/svg+xml" href="./efd.svg">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <link rel="preload stylesheet" as="style" href="https://fonts.bunny.net/css?display=swap&amp;family=Quicksand:regular,600%7CMontserrat:regular,600">
+    <link rel="preload stylesheet" as="style"
+        href="https://fonts.bunny.net/css?display=swap&amp;family=Quicksand:regular,600%7CMontserrat:regular,600">
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
@@ -28,14 +30,17 @@
             #full-navbar {
                 display: block !important;
             }
+
             #small-navbar {
                 display: none !important;
             }
         }
+
         @media (max-width: 700px) {
             #full-navbar {
                 display: none !important;
             }
+
             #small-navbar {
                 display: block !important;
             }
@@ -82,7 +87,7 @@
             font-weight: bold;
             text-align: center;
         }
-         
+
         #modal {
             max-width: 580px;
             height: fit-content;
@@ -102,8 +107,7 @@
 </head>
 
 <body>
-    <nav id="small-navbar"
-        style="
+    <nav id="small-navbar" style="
             grid-column-start: 1;
             grid-column-end: 4;
             padding: 0.5rem 2rem;
@@ -111,17 +115,16 @@
             border-radius: 0 0 8px 8px;
             width: 100vw;
             display: none;
-        "
-    >
+        ">
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <a href="https://energiefuerdich.de/" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <a href="https://energiefuerdich.de/"
+                style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
                 <img src="efd_transparent.svg" alt="Logo" style="height: 80px; margin-bottom: 0.5rem;">
                 <p style="margin: 0; text-align: center;">Andrea Christiansen</p>
             </a>
         </div>
     </nav>
-    <nav id="full-navbar"
-        style="
+    <nav id="full-navbar" style="
             grid-column-start: 1;
             grid-column-end: 4;
             background: #fff;
@@ -130,8 +133,7 @@
             margin-bottom: 2rem;
             border-radius: 0 0 8px 8px;
             width: 100vw;
-        "
-    >
+        ">
         <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
             <!-- Left-aligned logo -->
             <a href="https://energiefuerdich.de/" style="display: flex; align-items: center; text-decoration: none;">
@@ -143,76 +145,75 @@
                 <a href="https://energiefuerdich.de/" style="text-decoration: none;">Home</a>
                 <a href="https://energiefuerdich.de/mein-angebot" style="text-decoration: none;">Mein Angebot</a>
                 <a href="https://energiefuerdich.de/uber-mich" style="text-decoration: none;">Über mich</a>
-                <a href="https://www.studiobookr.com/fa-energie-fuer-dich-66130#/services?service=679985" style="text-decoration: none; color: #fff !important; background: rgba(254, 153, 0, 1); border-radius: 4px; padding: 0.5rem 1rem;">Termin Buchen</a>
+                <a href="https://www.studiobookr.com/fa-energie-fuer-dich-66130#/services?service=679985"
+                    style="text-decoration: none; color: #fff !important; background: rgba(254, 153, 0, 1); border-radius: 4px; padding: 0.5rem 1rem;">Termin
+                    Buchen</a>
             </div>
         </div>
     </nav>
     <div id="modal">
         <h2 style="margin-top: 1rem;">Maya Horoskop Rechner</h1>
-        <form id="horoscope-form" onsubmit="onSubmit(event)">
-            <span style="display: block; text-align: center; margin-bottom: 1rem;">
-                Hier kannst du dein Geburtsdatum oder ein anderes Datum eingeben, für das du die Maya Tagesenergie berechnen möchtest.
-            </span>
-            <span style="display: block; text-align: center; margin-bottom: 1rem;">
-                Du möchtest mehr erfahren? <a href="https://wa.me/4915204701332">Schreib mir via WhatsApp</a>
-            </span>
-            <div style="display: flex; gap: 1rem; max-width: 300px; margin: 0 auto;">
-                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <label for="birth-day" style="text-align: center;">Tag</label>
-                    <input type="number" id="birth-day" name="birth-day" min="1" max="31" required>
+            <form id="horoscope-form" onsubmit="onSubmit(event)">
+                <span style="display: block; text-align: center; margin-bottom: 1rem;">
+                    Hier kannst du dein Geburtsdatum oder ein anderes Datum eingeben, für das du die Maya Tagesenergie
+                    berechnen möchtest.
+                </span>
+                <span style="display: block; text-align: center; margin-bottom: 1rem;">
+                    Du möchtest mehr erfahren? <a href="https://wa.me/4915204701332">Schreib mir via WhatsApp</a>
+                </span>
+                <div style="display: flex; gap: 1rem; max-width: 300px; margin: 0 auto;">
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <label for="birth-day" style="text-align: center;">Tag</label>
+                        <input type="number" id="birth-day" name="birth-day" min="1" max="31" required>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <label for="birth-month" style="text-align: center;">Monat</label>
+                        <input type="number" id="birth-month" name="birth-month" min="1" max="12" required>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <label for="birth-year" style="text-align: center;">Jahr</label>
+                        <input type="number" id="birth-year" name="birth-year" min="1900" max="2100" required>
+                    </div>
                 </div>
-                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <label for="birth-month" style="text-align: center;">Monat</label>
-                    <input type="number" id="birth-month" name="birth-month" min="1" max="12" required>
-                </div>
-                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                    <label for="birth-year" style="text-align: center;">Jahr</label>
-                    <input type="number" id="birth-year" name="birth-year" min="1900" max="2100" required>
-                </div>
-            </div>
-            <!-- <button type="submit" style="display: flex; gap: 1rem; max-width: 200px; margin: 0 auto;">Kin berechnen</button> -->
-            <div
-                id="output"
-                style="
+                <!-- <button type="submit" style="display: flex; gap: 1rem; max-width: 200px; margin: 0 auto;">Kin berechnen</button> -->
+                <div id="output" style="
                     background:rgba(254, 153, 0, 0.6);
                     box-shadow: 0px 0px 25px 0px rgba(170, 170, 170, 0.25);
                     border-radius: 8px;
                     margin-top: 1rem;
-                    /* height: 220px; */
                     width: 100%;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     text-align: center;
                     padding: 1rem 2rem;
-                "
-            >
-                <h3 id="result-header" style="text-align: center; margin-top: 0px; margin-bottom: 1rem;">Dein persönliches Maya-Kin</h3>
-                <div style="width: 100%; text-align: left;">
-                    <span>
-                        <span style="font-weight: 600;">Maya-Kin:</span>
-                        <span id="kin-result"></span>
-                        <span id="portal-tag" style="display: none;"> (Portaltag)</span>
-                    </span><br>
-                    <span>
-                        <span style="font-weight: 600;">Archetyp-Grundenergie:</span>
-                        <span id="archetyp"></span>
-                    </span><br>
-                    <span>
-                        <span style="font-weight: 600;">Ton:</span>
-                        <span id="ton"></span>
-                    </span><br>
-                    <span>
-                        <span style="font-weight: 600;">Erfahrungs-Welle:</span>
-                        <span id="welle"></span>
-                    </span>
+                ">
+                    <h3 id="result-header" style="text-align: center; margin-top: 0px; margin-bottom: 1rem;">Dein
+                        persönliches Maya-Kin</h3>
+                    <div style="width: 100%; text-align: left;">
+                        <span>
+                            <span style="font-weight: 600;">Maya-Kin:</span>
+                            <span id="kin-result"></span>
+                            <span id="portal-tag" style="display: none;"> (Portaltag)</span>
+                        </span><br>
+                        <span>
+                            <span style="font-weight: 600;">Archetyp-Grundenergie:</span>
+                            <span id="archetyp"></span>
+                        </span><br>
+                        <span>
+                            <span style="font-weight: 600;">Ton:</span>
+                            <span id="ton"></span>
+                        </span><br>
+                        <span>
+                            <span style="font-weight: 600;">Erfahrungs-Welle:</span>
+                            <span id="welle"></span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </form>
-     </div>
+            </form>
+    </div>
 
-        <div
-            style="
+    <div style="
             grid-column-start: 1;
             grid-column-end: 4;
             height: 300px;
@@ -226,100 +227,102 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            "
-        >
-            <div
-            style="
+            ">
+        <div style="
                 position: absolute;
                 top: 0; left: 0; right: 0; bottom: 0;
-                /* background: rgba(40,40,40,0.45); */
                 pointer-events: none;
-            "
-            ></div>
-            <p style="position: relative; z-index: 1; color: #fff; font-size: 2rem; text-shadow: 0 2px 8px #222; margin-bottom: 12rem; text-align: center;">
-                <span style="white-space: nowrap;">Andrea Christiansen</span> - <span style="white-space: nowrap;">Ganzheitliche Lebensberatung</span>
-            </p>
-        </div>
+            "></div>
+        <p
+            style="position: relative; z-index: 1; color: #fff; font-size: 2rem; text-shadow: 0 2px 8px #222; margin-bottom: 12rem; text-align: center;">
+            <span style="white-space: nowrap;">Andrea Christiansen</span> - <span
+                style="white-space: nowrap;">Ganzheitliche Lebensberatung</span>
+        </p>
+    </div>
 
-        <script>
-            function setupAutoCompute() {
-                const dayInput = document.getElementById('birth-day');
-                const monthInput = document.getElementById('birth-month');
-                const yearInput = document.getElementById('birth-year');
+    <script>
+        function setupAutoCompute() {
+            const dayInput = document.getElementById('birth-day');
+            const monthInput = document.getElementById('birth-month');
+            const yearInput = document.getElementById('birth-year');
 
-                dayInput.value = new Date().getDate()
-                monthInput.value = new Date().getMonth() + 1
-                yearInput.value = new Date().getFullYear()
+            dayInput.value = new Date().getDate()
+            monthInput.value = new Date().getMonth() + 1
+            yearInput.value = new Date().getFullYear()
 
-                function autoCompute() {
-                    const day = dayInput.value.padStart(2, '0');
-                    const month = monthInput.value.padStart(2, '0');
-                    const year = yearInput.value;
-                    if (day && month && year) {
-                        const birthdate = `${year}-${month}-${day}`;
-                        fillMayaKinNumber(birthdate);
-                        // document.getElementById('result-header').textContent = `Dein persönliches Maya-Kin`;
-                        document.getElementById('result-header').textContent = `Deine Maya Tagesenergie`;
-                    } else {
-                        const today = new Date();
-                        const yyyy = today.getFullYear();
-                        const mm = String(today.getMonth() + 1).padStart(2, '0');
-                        const dd = String(today.getDate()).padStart(2, '0');
-                    
-                        fillMayaKinNumber(`${yyyy}-${mm}-${dd}`);
-                        document.getElementById('result-header').textContent = `Deine Maya Tagesenergie`;
-                    }
+            function autoCompute() {
+                const day = dayInput.value.padStart(2, '0');
+                const month = monthInput.value.padStart(2, '0');
+                const year = yearInput.value;
+
+                const today = new Date();
+                const dateToComputeFor = day && month && year
+                    ? `${year}-${month}-${day}`
+                    : `${today.getFullYear()}-${(today.getMonth() + 1).padStart(2, '0')}-${today.getDate().padStart(2, '0')}`;
+
+
+                fillMayaKinNumber(dateToComputeFor);
+
+                const inputDate = new Date(`${year}-${month}-${day}`);
+                if (
+                    today.getFullYear() === inputDate.getFullYear() &&
+                    today.getMonth() === inputDate.getMonth() &&
+                    today.getDate() === inputDate.getDate()
+                ) {
+                    document.getElementById('result-header').textContent = `Heutige Maya Tagesenergie`;
+                } else {
+                    document.getElementById('result-header').textContent = `Deine Maya Tagesenergie`;
                 }
-
-                dayInput.addEventListener('input', autoCompute);
-                monthInput.addEventListener('input', autoCompute);
-                yearInput.addEventListener('input', autoCompute);
-                autoCompute();
             }
-            setupAutoCompute();
-            function onSubmit(event) {
-                event.preventDefault();
-                console.log('Form submitted');
-                const birthdate = document.getElementById('birthdate').value;
-                fillMayaKinNumber(birthdate);
-            };
-            function fillMayaKinNumber(date) {
-                const [yyyy, mm, dd] = date.split('-').map(Number);
-                if (mm === 2 && dd === 29) {
-                    date = `${yyyy}-02-28`;
-                }
 
-                const monthLookUp = [0, 31, 59, 90, 120, 151, 181, 212, 243, 13, 44, 74];
-                const yearLookUp = [2, 107, 212, 57, 162, 7, 112, 217, 62, 167, 12, 117, 222, 67, 172, 17, 122, 227, 72, 177, 22, 127, 232, 77, 182, 27, 132, 237, 82, 187, 32, 137, 242, 87, 192, 37, 142, 247, 92, 197, 42, 147, 252, 97, 202, 47, 152, 257, 102, 207, 52, 157];
+            dayInput.addEventListener('input', autoCompute);
+            monthInput.addEventListener('input', autoCompute);
+            yearInput.addEventListener('input', autoCompute);
+            autoCompute();
+        }
+        setupAutoCompute();
+        function onSubmit(event) {
+            event.preventDefault();
+            console.log('Form submitted');
+            const birthdate = document.getElementById('birthdate').value;
+            fillMayaKinNumber(birthdate);
+        };
+        function fillMayaKinNumber(dateString) {
+            const [yyyy, mm, dd] = dateString.split('-').map(Number);
+            if (mm === 2 && dd === 29) {
+                dateString = `${yyyy}-02-28`;
+            }
 
-                const d = new Date(date);
-                const result = yearLookUp[(d.getFullYear() - 1902) % 52] + monthLookUp[d.getMonth()] + d.getDate();
-                const kinNumber = (result % 260) === 0 ? 260 : (result % 260);
-                console.log('Calculated kin number:', kinNumber);
-                if (!(kinNumber >= 1 && kinNumber <= 260)) {
-                    return;
-                }
-                
-                document.getElementById('archetyp').textContent = getArchetyp(kinNumber);
-                document.getElementById('ton').textContent = getTon(kinNumber);
-                document.getElementById('welle').textContent = getArchetyp(kinNumber - getTon(kinNumber) + 1);
-                document.getElementById('kin-result').textContent = kinNumber;
-                document.getElementById('output').style.display = 'block';
-                document.getElementById('portal-tag').style.display = isPortalKin(kinNumber) ? 'inline' : 'none';
-            };
-            function getTon(kinNumber) {
-                return ((kinNumber - 1) % 13) + 1;
-            };
-            function getArchetyp(kinNumber) {
-                const archetypIndex = ((kinNumber - 1) % 20);
-                const archetyp = ["Roter Drache", "Weißer Wind", "Blaue Nacht", "Gelber Samen", "Rote Schlange", "Weißer Weltenüberbrücker", "Blaue Hand", "Gelber Stern", "Roter Mond", "Weißer Hund", "Blauer Affe", "Gelber Mensch", "Roter Himmelswanderer", "Weißer Magier", "Blauer Adler", "Gelber Krieger", "Rote Erde", "Weißer Spiegel", "Blauer Sturm", "Gelbe Sonne"];
-                return archetyp[archetypIndex];
-            };
-            function isPortalKin(kinNumber) {
-                const portalKinNumbers = [1, 20, 22, 39, 43, 50, 51, 58, 64, 69, 72, 85, 88, 93, 96, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 165, 168, 173, 176, 184, 189, 192, 197, 203, 210, 211, 218, 222, 239, 241, 260];
-                return portalKinNumbers.includes(kinNumber);
-            };
-        </script>
+            const monthLookUp = [0, 31, 59, 90, 120, 151, 181, 212, 243, 13, 44, 74];
+            const yearLookUp = [2, 107, 212, 57, 162, 7, 112, 217, 62, 167, 12, 117, 222, 67, 172, 17, 122, 227, 72, 177, 22, 127, 232, 77, 182, 27, 132, 237, 82, 187, 32, 137, 242, 87, 192, 37, 142, 247, 92, 197, 42, 147, 252, 97, 202, 47, 152, 257, 102, 207, 52, 157];
+
+            const d = new Date(dateString);
+            const result = yearLookUp[(d.getFullYear() - 1902) % 52] + monthLookUp[d.getMonth()] + d.getDate();
+            const kinNumber = (result % 260) === 0 ? 260 : (result % 260);
+            if (!(kinNumber >= 1 && kinNumber <= 260)) {
+                return;
+            }
+
+            document.getElementById('archetyp').textContent = getArchetyp(kinNumber);
+            document.getElementById('ton').textContent = getTon(kinNumber);
+            document.getElementById('welle').textContent = getArchetyp(kinNumber - getTon(kinNumber) + 1);
+            document.getElementById('kin-result').textContent = kinNumber;
+            document.getElementById('output').style.display = 'block';
+            document.getElementById('portal-tag').style.display = isPortalKin(kinNumber) ? 'inline' : 'none';
+        };
+        function getTon(kinNumber) {
+            return ((kinNumber - 1) % 13) + 1;
+        };
+        function getArchetyp(kinNumber) {
+            const archetypIndex = ((kinNumber - 1) % 20);
+            const archetyp = ["Roter Drache", "Weißer Wind", "Blaue Nacht", "Gelber Samen", "Rote Schlange", "Weißer Weltenüberbrücker", "Blaue Hand", "Gelber Stern", "Roter Mond", "Weißer Hund", "Blauer Affe", "Gelber Mensch", "Roter Himmelswanderer", "Weißer Magier", "Blauer Adler", "Gelber Krieger", "Rote Erde", "Weißer Spiegel", "Blauer Sturm", "Gelbe Sonne"];
+            return archetyp[archetypIndex];
+        };
+        function isPortalKin(kinNumber) {
+            const portalKinNumbers = [1, 20, 22, 39, 43, 50, 51, 58, 64, 69, 72, 85, 88, 93, 96, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 165, 168, 173, 176, 184, 189, 192, 197, 203, 210, 211, 218, 222, 239, 241, 260];
+            return portalKinNumbers.includes(kinNumber);
+        };
+    </script>
 </body>
 
 </html>
