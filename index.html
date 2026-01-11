@@ -296,18 +296,18 @@
                 const month = monthInput.value.padStart(2, '0');
                 const year = yearInput.value;
 
-                const dateToComputeFor = day && month && year
-                    ? `${year}-${month}-${day}`
-                    : `${today.getFullYear()}-${(today.getMonth() + 1).padStart(2, '0')}-${today.getDate().padStart(2, '0')}`;
-
+                const dateToComputeFor = `${year}-${month}-${day}`;
+                if (!(day && month && year.length === 4)) {
+                    return;
+                }
 
                 const kin = fillMayaKinNumber(dateToComputeFor);
-                document.getElementById('archetyp').textContent = getArchetyp(kinNumber);
-                document.getElementById('ton').textContent = getTon(kinNumber);
-                document.getElementById('welle').textContent = getArchetyp(kinNumber - getTon(kinNumber) + 1);
-                document.getElementById('kin-result').textContent = kinNumber;
+                document.getElementById('archetyp').textContent = getArchetyp(kin);
+                document.getElementById('ton').textContent = getTon(kin);
+                document.getElementById('welle').textContent = getArchetyp(kin - getTon(kin) + 1);
+                document.getElementById('kin-result').textContent = kin;
                 document.getElementById('output').style.display = 'block';
-                document.getElementById('portal-tag').style.display = isPortalKin(kinNumber) ? 'inline' : 'none';
+                document.getElementById('portal-tag').style.display = isPortalKin(kin) ? 'inline' : 'none';
 
                 // const inputDate = new Date(`${year}-${month}-${day}`);
                 // if (
@@ -324,7 +324,6 @@
             dayInput.addEventListener('input', autoCompute);
             monthInput.addEventListener('input', autoCompute);
             yearInput.addEventListener('input', autoCompute);
-            autoCompute();
         }
         setupAutoCompute();
         function onSubmit(event) {
