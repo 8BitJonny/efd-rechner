@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Dein Maya Rechner von Andrea von Energie für Dich</title>
@@ -153,7 +152,7 @@
     </nav>
     <div id="modal">
         <h2 style="margin-top: 1rem;">Dein Maya Rechner</h1>
-            <form id="horoscope-form" onsubmit="onSubmit(event)">
+            <form onsubmit="onSubmit(event)">
                 <span style="display: block; text-align: center; margin-bottom: 1rem;">
                     Hier kannst Du Dein Geburtsdatum oder ein anderes Datum eingeben, für das Du die Maya Tagesenergie
                     berechnen möchtest.
@@ -279,10 +278,6 @@
             const monthInput = document.getElementById('birth-month');
             const yearInput = document.getElementById('birth-year');
 
-            // dayInput.value = new Date().getDate()
-            // monthInput.value = new Date().getMonth() + 1
-            // yearInput.value = new Date().getFullYear()
-
             const today = new Date();
             const kinNumber = fillMayaKinNumber(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`);
             document.getElementById('archetyp-2').textContent = getArchetyp(kinNumber);
@@ -308,17 +303,6 @@
                 document.getElementById('kin-result').textContent = kin;
                 document.getElementById('output').style.display = 'block';
                 document.getElementById('portal-tag').style.display = isPortalKin(kin) ? 'inline' : 'none';
-
-                // const inputDate = new Date(`${year}-${month}-${day}`);
-                // if (
-                //     today.getFullYear() === inputDate.getFullYear() &&
-                //     today.getMonth() === inputDate.getMonth() &&
-                //     today.getDate() === inputDate.getDate()
-                // ) {
-                //     document.getElementById('result-header').textContent = `Heutige Maya Tagesenergie`;
-                // } else {
-                //     document.getElementById('result-header').textContent = `Deine Maya Tagesenergie`;
-                // }
             }
 
             dayInput.addEventListener('input', autoCompute);
@@ -348,13 +332,6 @@
                 return;
             }
             return kinNumber;
-
-            // document.getElementById('archetyp').textContent = getArchetyp(kinNumber);
-            // document.getElementById('ton').textContent = getTon(kinNumber);
-            // document.getElementById('welle').textContent = getArchetyp(kinNumber - getTon(kinNumber) + 1);
-            // document.getElementById('kin-result').textContent = kinNumber;
-            // document.getElementById('output').style.display = 'block';
-            // document.getElementById('portal-tag').style.display = isPortalKin(kinNumber) ? 'inline' : 'none';
         };
         function getTon(kinNumber) {
             return ((kinNumber - 1) % 13) + 1;
@@ -370,5 +347,4 @@
         };
     </script>
 </body>
-
 </html>
