@@ -325,7 +325,7 @@
             const yearLookUp = [2, 107, 212, 57, 162, 7, 112, 217, 62, 167, 12, 117, 222, 67, 172, 17, 122, 227, 72, 177, 22, 127, 232, 77, 182, 27, 132, 237, 82, 187, 32, 137, 242, 87, 192, 37, 142, 247, 92, 197, 42, 147, 252, 97, 202, 47, 152, 257, 102, 207, 52, 157];
 
             const d = new Date(dateString);
-            const result = daysSince() + 3;
+            const result = daysSinced(d) + 3;
             const kinNumber = (result % 260) === 0 ? 260 : (result % 260);
             if (!(kinNumber >= 1 && kinNumber <= 260)) {
                 document.getElementById('output').style.display = 'none';
@@ -333,10 +333,9 @@
             }
             return kinNumber;
         };
-        function daysSince() {
-            const now = Date.now();
+        function daysSince(input) {;
             const start = new Date("1902-01-01").getTime();
-            return Math.floor((now - start) / 86400000);
+            return Math.floor((input - start) / 86400000);
         }
         function getTon(kinNumber) {
             return ((kinNumber - 1) % 13) + 1;
